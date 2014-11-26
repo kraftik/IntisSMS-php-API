@@ -5,8 +5,7 @@ abstract class AClient {
 
     protected $login;
     protected $apiKey;
-
-    const HOST = "http://dev.sms16.ru/get/";
+    protected $apiHost;
 
     /**
      * 
@@ -18,7 +17,7 @@ abstract class AClient {
     public function getContent($scriptName, $parameters = array()) {
         $all = $this->getParameters($parameters);
 
-        $url = self::HOST . $scriptName . ".php?" . http_build_query($all);
+        $url = $this->apiHost . $scriptName . ".php?" . http_build_query($all);
         $result = $this->getContentFromApi($url);
         $this->checkException($result);
 
@@ -26,7 +25,7 @@ abstract class AClient {
     }
     
     private function getTimestamp() {
-        return file_get_contents(self::HOST . 'timestamp.php');
+        return file_get_contents($this->apiHost . 'timestamp.php');
     }
 
     private function getBaseParameters() {
@@ -60,6 +59,7 @@ abstract class AClient {
 
     private function getContentFromApi($url) {
         $result = file_get_contents($url);
+//        var_dump($result); exit;
         if ($result === false)
             return false;
         $result = json_decode($result);

@@ -10,8 +10,9 @@ use Intis\API\APIException;
 
 $login = 'rso';
 $apiKey = 'cfe4fb6f670914b7897cc2783234b7428d6dc826';
+$apiHost = 'http://dev.sms16.ru/get/';
 
-$client = new IntisClient($login, $apiKey);
+$client = new IntisClient($login, $apiKey, $apiHost);
 
 try{
     $year = 2014;
@@ -21,7 +22,6 @@ try{
     
     foreach($result as $one){
         $one->getDay();
-        
         $stats = $one->getStats();
         foreach($stats as $i){
             $i->getState();

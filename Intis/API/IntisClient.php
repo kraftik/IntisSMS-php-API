@@ -26,10 +26,12 @@ class IntisClient extends AClient implements IClient {
      * 
      * @param string $login
      * @param string $apiKey
+     * @param string $apiHost
      */
-    public function __construct($login, $apiKey) {
+    public function __construct($login, $apiKey, $apiHost) {
         $this->login = $login;
         $this->apiKey = $apiKey;
+        $this->apiHost = $apiHost;
     }
 
     public function getBalance() {
@@ -96,8 +98,8 @@ class IntisClient extends AClient implements IClient {
         $content = $this->getContent('send', array('phone' => $str, 'sender' => $originator, 'text' => $text));
 
         $messages = array();
-        foreach ($content as $phone => $message) {
-            $messages[] = new MessageSendingResult($phone, $message);
+        foreach ($content as $message) {
+            $messages[] = new MessageSendingResult($message);
         }
 
         return $messages;
@@ -167,7 +169,7 @@ class IntisClient extends AClient implements IClient {
 
         $hlr = array();
         foreach ($content as $one) {
-            $hlr = new HLRResponse($one);
+            $hlr[] = new HLRResponse($one);
         }
         return $hlr;
     }

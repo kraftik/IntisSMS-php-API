@@ -7,9 +7,9 @@ class Template{
     private $template;
     private $createdAt;
     
-    function __construct($title, $obj) {
-        $this->title = $title;
-        $this->id = $obj->id;
+    public function __construct($id, $obj) {
+        $this->id = $id;
+        $this->title = $obj->name;
         $this->template = $obj->template;
         $this->createdAt = $obj->up_time;
     }
@@ -18,7 +18,15 @@ class Template{
      * 
      * @return type
      */
-    function getTitle() {
+    public function getId(){
+        return $this->id;
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getTitle() {
         return $this->title;
     }
 
@@ -26,7 +34,7 @@ class Template{
      * 
      * @return type
      */
-    function getTemplate() {
+    public function getTemplate() {
         return $this->template;
     }
 
@@ -34,7 +42,7 @@ class Template{
      * 
      * @return type
      */
-    function getCreatedAt() {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 }

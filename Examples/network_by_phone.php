@@ -1,6 +1,6 @@
 <?php
 /*
- * Запрос баланса
+ * Запрос оператора по номеру
  */
 
 require_once('autoloader.php');
@@ -15,12 +15,13 @@ $apiHost = 'http://dev.sms16.ru/get/';
 $client = new IntisClient($login, $apiKey, $apiHost);
 
 try{
-    $balance = $client->getBalance();
+    $phone = '79802503672';
+    $network = $client->getNetworkByPhone($phone);
 
-    $amount = $balance->getAmount();
-    $currency = $balance->getCurrency();
+    $network->getTitle();
 }
 catch (APIException $e){
     $errorMessage = $e->getMessage();
     $code = $e->getCode();
 }
+

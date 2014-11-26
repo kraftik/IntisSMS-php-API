@@ -10,11 +10,12 @@ use Intis\API\APIException;
 
 $login = 'rso';
 $apiKey = 'cfe4fb6f670914b7897cc2783234b7428d6dc826';
+$apiHost = 'http://dev.sms16.ru/get/';
 
-$client = new IntisClient($login, $apiKey);
+$client = new IntisClient($login, $apiKey, $apiHost);
 
 try{
-    $baseId = 125480;
+    $baseId = 125472;
     $page = 1;
     $items = $client->getPhoneBaseItems($baseId, $page);
 

@@ -1,6 +1,6 @@
 <?php
 /*
- * Запрос баланса
+ * Запрос входящих СМС
  */
 
 require_once('autoloader.php');
@@ -15,12 +15,19 @@ $apiHost = 'http://dev.sms16.ru/get/';
 $client = new IntisClient($login, $apiKey, $apiHost);
 
 try{
-    $balance = $client->getBalance();
+    $date = '2014-11-25';
+    $result = $client->getIncomingMessages($date);
 
-    $amount = $balance->getAmount();
-    $currency = $balance->getCurrency();
+    foreach($result as $one){
+        $one->getMessageId();
+        $one->getOriginator();
+        $one->getPrefix();
+        $one->getReceivedAt();
+        $one->getText();
+    }
 }
 catch (APIException $e){
     $errorMessage = $e->getMessage();
     $code = $e->getCode();
 }
+

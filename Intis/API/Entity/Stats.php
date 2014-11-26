@@ -7,7 +7,7 @@ class Stats{
     private $currency;
     private $count;
     
-    function __construct($state, $obj) {
+    public function __construct($state, $obj) {
         $this->state = $state;
         $this->cost = $obj->cost;
         $this->count = $obj->parts;
@@ -17,7 +17,7 @@ class Stats{
      * 
      * @return type
      */
-    function getState() {
+    public function getState() {
         return MessageState::parse($this->state);
     }
 
@@ -25,7 +25,7 @@ class Stats{
      * 
      * @return type
      */
-    function getCost() {
+    public function getCost() {
         return $this->cost;
     }
 
@@ -33,7 +33,7 @@ class Stats{
      * 
      * @return type
      */
-    function getCurrency() {
+    public function getCurrency() {
         return $this->currency;
     }
 
@@ -41,7 +41,7 @@ class Stats{
      * 
      * @return type
      */
-    function getCount() {
+    public function getCount() {
         return $this->count;
     }
 }

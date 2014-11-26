@@ -8,7 +8,7 @@ class IncomingMessage{
     private $prefix;
     private $text;
     
-    function __construct($messageId, $obj) {
+    public function __construct($messageId, $obj) {
         $this->messageId = $messageId;
         $this->receivedAt = $obj->date;
         $this->originator = $obj->sender;
@@ -20,7 +20,7 @@ class IncomingMessage{
      * 
      * @return type
      */
-    function getMessageId() {
+    public function getMessageId() {
         return $this->messageId;
     }
 
@@ -28,7 +28,7 @@ class IncomingMessage{
      * 
      * @return type
      */
-    function getReceivedAt() {
+    public function getReceivedAt() {
         return $this->receivedAt;
     }
 
@@ -36,7 +36,7 @@ class IncomingMessage{
      * 
      * @return type
      */
-    function getOriginator() {
+    public function getOriginator() {
         return $this->originator;
     }
 
@@ -44,7 +44,7 @@ class IncomingMessage{
      * 
      * @return type
      */
-    function getPrefix() {
+    public function getPrefix() {
         return $this->prefix;
     }
 
@@ -52,7 +52,7 @@ class IncomingMessage{
      * 
      * @return type
      */
-    function getText() {
+    public function getText() {
         return $this->text;
     }
 }

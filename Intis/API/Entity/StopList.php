@@ -6,17 +6,19 @@ class StopList{
     private $timeAddedAt;
     private $description;
     
-    function __construct($obj) {
-        $this->id = $obj->id;
-        $this->timeAddedAt = $obj->time_in;
-        $this->description = $obj->description;
+    public function __construct($obj) {
+        foreach($obj as $id => $params){
+            $this->id = $id;
+            $this->timeAddedAt = $params->time_in;
+            $this->description = $params->description;
+        }
     }
 
     /**
      * 
      * @return type
      */
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
@@ -24,7 +26,7 @@ class StopList{
      * 
      * @return type
      */
-    function getTimeAddedAt() {
+    public function getTimeAddedAt() {
         return $this->timeAddedAt;
     }
 
@@ -32,7 +34,7 @@ class StopList{
      * 
      * @return type
      */
-    function getDescription() {
+    public function getDescription() {
         return $this->description;
     }
 }

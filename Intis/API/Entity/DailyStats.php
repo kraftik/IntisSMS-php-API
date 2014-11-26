@@ -5,7 +5,7 @@ class DailyStats{
     private $day;
     private $stats;
     
-    function __construct($day, $stats) {
+    public function __construct($day, $stats) {
         $this->day = $day;
         $this->stats = $stats;
     }
@@ -14,7 +14,7 @@ class DailyStats{
      * 
      * @return type
      */
-    function getDay() {
+    public function getDay() {
         return $this->day;
     }
 
@@ -22,7 +22,7 @@ class DailyStats{
      * 
      * @return type
      */
-    function getStats() {
+    public function getStats() {
         return $this->stats;
     }
 }

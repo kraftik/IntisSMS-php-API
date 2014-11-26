@@ -10,8 +10,9 @@ use Intis\API\APIException;
 
 $login = 'rso';
 $apiKey = 'cfe4fb6f670914b7897cc2783234b7428d6dc826';
+$apiHost = 'http://dev.sms16.ru/get/';
 
-$client = new IntisClient($login, $apiKey);
+$client = new IntisClient($login, $apiKey, $apiHost);
 
 try{
     $messageId = array('4091297100348873330001','4091297100348880230003');

@@ -2,9 +2,7 @@
 namespace Intis\API;
 
 class APIException extends \Exception{
-    private $code;
-    
-    static private $messages = array(
+    static public $messages = array(
         0 => 'Сервис отключен',
         1 => 'Не указана подпись',
         2 => 'Не указан логин',
@@ -36,20 +34,8 @@ class APIException extends \Exception{
         28 => 'Не указана начальная дата',
         29 => 'Не указана конечная дата'
     );
-    
-     
 
-    public function __constructor($code){
+    public function __construct($code){
         parent::__construct(self::$messages[$code], $code);
-        
-        $this->code = $code;
-    }
-     
-    public function getCode(){
-         return $this->code;
-    }
-
-    public function getMessage(){
-        return self::$messages[$this->code];
     }
 }

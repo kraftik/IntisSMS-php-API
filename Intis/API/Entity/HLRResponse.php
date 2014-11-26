@@ -29,7 +29,7 @@ class HLRResponse {
     private $ported;
     private $inRoaming;
 
-    function __construct($obj) {
+    public function __construct($obj) {
         if(isset($obj->id))
             $this->id = $obj->id;
         if(isset($obj->destination))
@@ -64,7 +64,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
@@ -72,7 +72,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getStatus() {
+    public function getStatus() {
         return HLRResponseState::parse($this->status);
     }
 
@@ -80,7 +80,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getDestination() {
+    public function getDestination() {
         return $this->destination;
     }
 
@@ -88,7 +88,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getIMSI() {
+    public function getIMSI() {
         return $this->IMSI;
     }
 
@@ -96,7 +96,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getMCC() {
+    public function getMCC() {
         return $this->MCC;
     }
 
@@ -104,7 +104,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getMNC() {
+    public function getMNC() {
         return $this->MNC;
     }
 
@@ -112,7 +112,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getOriginalCountryName() {
+    public function getOriginalCountryName() {
         return $this->originalCountryName;
     }
 
@@ -120,7 +120,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getOriginalCountryCode() {
+    public function getOriginalCountryCode() {
         return $this->originalCountryCode;
     }
 
@@ -128,7 +128,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getOriginalNetworkName() {
+    public function getOriginalNetworkName() {
         return $this->originalNetworkName;
     }
 
@@ -136,7 +136,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getOriginalNetworkPrefix() {
+    public function getOriginalNetworkPrefix() {
         return $this->originalNetworkPrefix;
     }
 
@@ -144,7 +144,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getRoamingCountryName() {
+    public function getRoamingCountryName() {
         return $this->roamingCountryName;
     }
 
@@ -152,7 +152,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getRoamingCountryPrefix() {
+    public function getRoamingCountryPrefix() {
         return $this->roamingCountryPrefix;
     }
 
@@ -160,7 +160,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getRoamingNetworkName() {
+    public function getRoamingNetworkName() {
         return $this->roamingNetworkName;
     }
 
@@ -168,7 +168,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getRoamingNetworkPrefix() {
+    public function getRoamingNetworkPrefix() {
         return $this->roamingNetworkPrefix;
     }
 
@@ -176,7 +176,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getPortedCountryName() {
+    public function getPortedCountryName() {
         return $this->portedCountryName;
     }
 
@@ -184,7 +184,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getPortedCountryPrefix() {
+    public function getPortedCountryPrefix() {
         return $this->portedCountryPrefix;
     }
 
@@ -192,7 +192,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getPortedNetworkName() {
+    public function getPortedNetworkName() {
         return $this->portedNetworkName;
     }
 
@@ -200,7 +200,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getPortedNetworkPrefix() {
+    public function getPortedNetworkPrefix() {
         return $this->portedNetworkPrefix;
     }
 
@@ -208,7 +208,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function getPricePerMessage() {
+    public function getPricePerMessage() {
         return $this->pricePerMessage;
     }
 
@@ -216,7 +216,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function isPorted() {
+    public function isPorted() {
         if($this->ported == 'true')
             return true;
         return false;
@@ -226,7 +226,7 @@ class HLRResponse {
      * 
      * @return type
      */
-    function isInRoaming() {
+    public function isInRoaming() {
         if($this->inRoaming == 'true')
             return true;
         return false;

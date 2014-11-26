@@ -7,19 +7,27 @@ class MessageSendingResult{
     private $cost;
     private $currency;
     private $messagesCount;
+    private $error;
     
-    function __construct($phone, $obj) {
-        $this->phone = $phone;
-        $this->messageId = $obj->id_sms;
-        $this->cost = $onj->cost;
-        $this->messagesCount = $obj->count_sms;
+    public function __construct($obj) {
+        foreach($obj as $phone => $params){
+            $this->phone = $phone;
+            if(isset($params->id_sms))
+                $this->messageId = $params->id_sms;
+            if(isset($params->cost))
+                $this->cost = $params->cost;
+            if(isset($params->count_sms))
+                $this->messagesCount = $params->count_sms;
+            if(isset($params->error))
+                $this->error = $params->error;
+        }
     }
 
     /**
      * 
      * @return type
      */
-    function getPhone() {
+    public function getPhone() {
         return $this->phone;
     }
 
@@ -27,7 +35,7 @@ class MessageSendingResult{
      * 
      * @return type
      */
-    function getMessageId() {
+    public function getMessageId() {
         return $this->messageId;
     }
 
@@ -35,7 +43,7 @@ class MessageSendingResult{
      * 
      * @return type
      */
-    function getCost() {
+    public function getCost() {
         return $this->cost;
     }
 
@@ -43,7 +51,7 @@ class MessageSendingResult{
      * 
      * @return type
      */
-    function getCurrency() {
+    public function getCurrency() {
         return $this->currency;
     }
 
@@ -51,7 +59,15 @@ class MessageSendingResult{
      * 
      * @return type
      */
-    function getMessagesCount() {
+    public function getMessagesCount() {
         return $this->messagesCount;
+    }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getError(){
+        return $this->error;
     }
 }

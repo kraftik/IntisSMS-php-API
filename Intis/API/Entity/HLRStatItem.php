@@ -22,7 +22,7 @@ class HLRStatItem extends HLRResponse {
      * 
      * @return type
      */
-    function getPhone() {
+    public function getPhone() {
         return $this->phone;
     }
     
